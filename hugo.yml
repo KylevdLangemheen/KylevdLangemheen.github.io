@@ -1,8 +1,8 @@
-baseURL = 'https://kylevdlangemheen.github.io/'
-languageCode = 'en-us'
-title = 'Portfolio Kyle v.d. Langemheen'
-description: Welcome to my portfolio page! It is intended to highlight a limited sample of some of my learnt skills and professional interests. For inquiries, feel free to reach out to me on <a href="https://www.linkedin.com/in/kylevdlangemheen/">LinkedIn</a>
-theme = 'toha'
+baseURL: 'https://kylevdlangemheen.github.io/'
+languageCode: 'en-us'
+title: 'Portfolio Kyle v.d. Langemheen'
+description: 'Welcome to my portfolio page! It is intended to highlight a limited sample of some of my learnt skills and professional interests. For inquiries, feel free to reach out to me on <a href="https://www.linkedin.com/in/kylevdlangemheen/">LinkedIn</a>'
+theme: 'toha'
 
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="logo_KVDL_bold" data-name="logo KVDL_bold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3c3c3b;
+      }
+
+      .cls-2 {
+        fill: #f6f6f6;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #3c3c3b;
+        stroke-width: 30px;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="14.87" y="14.08" width="971.01" height="971.01"/>
+  <polyline class="cls-3" points="985.88 985.09 14.87 505.06 985.88 14.08 500.38 742.87 314.08 359.48"/>
+  <circle class="cls-1" cx="609.53" cy="715.1" r="26.39"/>
+</svg>

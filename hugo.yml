@@ -1,6 +1,6 @@
 baseURL: 'https://kylevdlangemheen.github.io/'
 languageCode: 'en-us'
-title: 'Portfolio Kyle v.d. Langemheen'
+title: 'Kyle van de Langemheen'
 description: 'Welcome to my portfolio page! It is intended to highlight a limited sample of some of my learnt skills and professional interests. For inquiries, feel free to reach out to me on <a href="https://www.linkedin.com/in/kylevdlangemheen/">LinkedIn</a>'
 theme: 'toha'
 
@@ -31,14 +31,12 @@ enableEmoji: true
 
 # Site parameters
 params:
-  background: 
+  background: images/bg.png
 
-  features:
-    # Set up some basic analytics
-    analytics:
-      enabled: true
-      goatCounter:
-        code: kylevdlangemheen
+  logo:
+    main: images/logo_extra_bold.svg
+    inverted: images/logo_extra_bold_transparent.svg
+    favicon: images/logo_extra_bold.svg
 
   # DarkMode
   darkMode:
@@ -69,3 +67,10 @@ params:
     provider: mailchimp
     # specify the target URL for the subscription form
     mailchimpURL: https://github.us1.list-manage.com/subscribe/post?u=19de52a4603135aae97163fd8&amp;id=094a24c76e
+  
+  features:
+    # Set up some basic analytics
+    analytics:
+      enabled: true
+      goatCounter:
+        code: kylevdlangemheen

@@ -1,0 +1,68 @@
+# section information
+section:
+  name: Skills
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+- name: Machine Learning
+  icon: /images/sections/skills/ML.png
+  summary: "In-depth familiarity with popular algorithms and implementations of traditional ML, such as: SVM, random forests, boosting techniques."
+
+- name: Deep Learning
+  icon: /images/sections/skills/DL.png
+  summary: "Implement papers from scratch in code where necessary. Focus on unsupervised, self-supervised, and supervised learning."
+
+- name: Computer Vision
+  icon: /images/sections/skills/vision.png
+  summary: "Multi-channel microscopy imaging (over time). Traditional ML using random forests, as well as deep learning solutions."
+
+- name: Python
+  icon: /images/sections/skills/python.png
+  summary: "Primary programming language. Including test-driven development and Sphinx for code maintenance."
+
+- name: Pytorch
+  icon: /images/sections/skills/pytorch.png
+  summary: "Library of choice for deep learning. Both for research and industry end uses."
+
+- name: SQL
+  icon: /images/sections/skills/sql.png
+  summary: "Datamanagement and queries with SQL, including dynamic pivots and partitioning for custom ETL pipelines."
+
+- name: Timeseries Analysis
+  icon: /images/sections/skills/timeseries.png
+  summary: "From simple ARIMA to complex CONV-LSTM autoencoders."
+
+- name: Natural Language Processing # Don't forget to write about the full NER pipeline, from data labelling to training to deployment as an API
+  icon: /images/sections/skills/NLP.svg
+  summary: "NLP using spaCy, HuggingFace, and BERT based models."
+
+- name: Visualization
+  icon: /images/sections/skills/tableau.svg
+  summary: "Scientific visualization and dashboarding. Experience with Tableau"
+
+- name: Project Management
+  icon: /images/sections/skills/agile.png
+  summary: "Work in agile and scrum based teams. Stand-in scrummaster."
+
+- name: Docker
+  icon: /images/sections/skills/docker.svg
+  summary: "Limited experience with containerization, and integrating with Kubernetes and GCP."
+
+- name: Linux
+  icon: /images/sections/skills/linux.png
+  summary: "Used as the main operating system during studies. Capable of writing bash/shell scripts."
+
+- name: Git
+  icon: /images/sections/skills/git.png
+  summary: "All development done with Git. Primarily using GitHub. Some prior experience using GitLab"
+
+- name: Other programming languages
+  icon: /images/sections/skills/c++.png
+  summary: "With varying degrees of proficiency: C/C++, C#, Java, Haskell, Lisp, Prolog, PHP, Matlab, R"

@@ -1,0 +1,22 @@
+# some information about you
+name: "Kyle van de Langemheen"
+nickname: "Kyle"
+image: "images/avatar.png"
+
+# greeting message before your name. it will default to "Hi! I am" if not provided
+greeting: "Hi, I am"
+
+# give your contact information. they will be used in the footer
+contactInfo:
+  email: "kylevdlangemheen@live.nl"
+  phone: "+41779657022"
+  linkedin:
+    icon: "fab fa-linkedin"
+    url: "https://www.linkedin.com/in/kylevdlangemheen"
+    text: "kylevdlangemheen on LinkedIn"
+
+# a summary of what you do
+summary:
+- I am a Machine Learning Scientist
+- I work with Python
+- I love to share my knowledge

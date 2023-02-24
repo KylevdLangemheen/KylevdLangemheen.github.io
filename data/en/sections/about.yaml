@@ -1,0 +1,60 @@
+section:
+  name: About # Title of section (default: "")
+  id: about # url id/slug of section *Required*
+  enable: true # Boolean to determine if this section is enabled (default: false)
+  weight: 1 # Order to display section in (default: alphabetical followed by weight)
+  showOnNavbar: true # Boolean to determine if a link should be shown for this section on the navbar
+  template: sections/about.html # allows you to point to a specific template.
+
+# your designation
+designation: Machine Learning Scientist
+# your company information
+#company:
+#  name: your company soon?
+#  url: "https://www.example.com"
+
+# a summary about you
+summary: ''
+
+# your social links
+# give as many as you want. use font-awesome for the icons.
+socialLinks:
+- name: Email
+  icon: "fas fa-envelope"
+  url: "kylevdlangemhee@live.nl"
+
+- name: Github
+  icon: "fab fa-github"
+  url: "https://www.github.com/kylevdlangemheen"
+
+- name: LinkedIn
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/kylevdlangemheen"
+
+# your resume. this file path should be relative to your "static" directory
+resume: "files/resume.pdf"
+
+# Show your badges
+# You can show your verifiable certificates from https://www.credly.com.
+# You can also show a circular bar indicating the level of expertise on a certain skill
+badges:
+
+#- type: certification
+#  name: Artificial Intelligence and Machine Learning
+#  url: "https://www.credly.com/org/grupo-bancolombia/badge/artificial-intelligence-and-machine-learning"
+#  badge: "https://images.credly.com/size/680x680/images/e027514f-9d07-4b29-862f-fe21a8aaebf1/ae.png"
+
+- type: soft-skill-indicator
+  name: Proactivity
+  percentage: 95
+  color: blue
+
+- type: soft-skill-indicator
+  name: Knowledge Sharing
+  percentage: 80
+  color: yellow
+
+- type: soft-skill-indicator
+  name: Adaptability
+  percentage: 85
+  color: orange

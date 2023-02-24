@@ -31,6 +31,19 @@ enableEmoji: true
 
 # Site parameters
 params:
+  features:
+    # Set up some basic analytics
+    analytics:
+      enabled: true
+      goatCounter:
+        code: <your goat counter code>
+
+  # DarkMode
+  darkMode:
+    enable: true
+    provider: darkreader
+    default: system
+
   # GitHub repo URL and branch of your site
   gitRepo: https://github.com/kylevdlangemheen/kylevdlangemheen.github.io
   gitBranch: main

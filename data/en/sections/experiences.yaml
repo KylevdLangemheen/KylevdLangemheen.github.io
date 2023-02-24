@@ -1,0 +1,78 @@
+# section information
+section:
+  name: Experiences
+  id: experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true 
+
+# Your experiences
+experiences:
+- company:
+    name: Nanolive
+    url: "https://www.nanolive.ch/"
+    location: Tolochenaz, Switzerland
+    # company overview
+    overview: Nanolive provides a microscopy solution to automated label-free live cell imaging and analysis.
+  positions:
+  - designation: Machine Learning Scientist
+    start: Sep 2022
+    # don't provide end date if you are currently working there. It will be replaced by "Present"
+    end: April 2023
+    # give some points about what was your responsibilities at the company.
+    responsibilities:
+    - Work on a testing and optimization environment for ML models.
+    - Exploit the large amounts of unlabelled microscopy images with minimal labelled data.
+    - Grow deep learning expertise in the team.
+
+- company:
+    name: Prisjakt
+    url: "https://www.prisjakt.nu/"
+    location: Malmö, Sweden
+    overview: Prisjakt is a price comparison website operating in multiple countries.
+  positions:
+  - designation: Machine Learning Engineer
+    start: March 2021
+    end: Sep 2021
+    responsibilities:
+    - Implement a complete pipeline for product attribute tagging.
+    - Grouping of similar products in unstructured data.
+    - Improvement of the search bar and search functionality.
+
+- company:
+    name: Rijksuniversiteit Groningen
+    url: "https://www.rug.nl/"
+    location: Groningen, The Netherlands
+    overview: The university of Groningen is a top 100 university with prominent Artificial Intelligence BSc. and MSc. degrees.
+  positions:
+  - designation: Teaching Assistant
+    start: Feb 2022
+    end: April 2021
+    responsibilities:
+    - Teaching Assistant to the bachelor course Neural Networks and master course Machine Learning.
+    - Assist during lectures and tutorials.
+    - Helpdesk for homework and course material.
+
+- company:
+    name: TKP
+    url: "https://www.tkppensioen.nl/"
+    location: Groningen, The Netherlands
+    overview: Intern counting Company (ICC) is responsible for counting worldwide intern Engineers.
+  positions:
+  - designation: Data scientist (Part-time)
+    start: Oct 2021
+    end: Jan 2020
+    responsibilities:
+    - Data visualization and dashboarding.
+    - Automated e-mail (pre-)processing.
+    - Write data ethics manifest for the application of ML within pension.
+
+  - designation: Assistant data management 
+    start: Jun 2019
+    end: Jan 2020
+    responsibilities:
+    - Query the database for information analysis, mailing, and legal purposes.
+    - Assist in the actualization and replacement of old database systems.
+    - Construct and schedule ETL tasks.

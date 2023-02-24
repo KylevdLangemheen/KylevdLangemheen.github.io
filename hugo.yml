@@ -31,12 +31,14 @@ enableEmoji: true
 
 # Site parameters
 params:
+  background: 
+
   features:
     # Set up some basic analytics
     analytics:
       enabled: true
       goatCounter:
-        code: <your goat counter code>
+        code: kylevdlangemheen
 
   # DarkMode
   darkMode:

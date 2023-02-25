@@ -44,7 +44,7 @@ params:
 
   # DarkMode
   darkMode:
-    enable: true
+    enable: False
     provider: darkreader
     default: system
 

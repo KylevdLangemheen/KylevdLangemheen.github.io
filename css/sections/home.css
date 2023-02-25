@@ -59,6 +59,10 @@
   color: #595959;
 }
 
+.home .ityped {
+  background-color: rgba(246,246,246,0.6);
+}
+
 #typing-carousel-data {
   display: none;
 }
@@ -116,6 +120,11 @@
 /* Medium devices (tablets, 768px and up) */
 
 @media only screen and (max-width: 768px) {
+  .home img {
+    width: 148px;
+    max-width: 50%;
+    height: 148px;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -130,7 +139,7 @@
   .home img {
     width: 140px;
     max-width: 50%;
-    height: auto;
+    height: 140px;
   }
 
   .home .greeting {

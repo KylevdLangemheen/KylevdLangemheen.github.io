@@ -12,7 +12,11 @@ languages:
     weight: 1
 
 # Control TOC depth
+# Allow raw html in markdown file
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   tableOfContents:
     startLevel: 2
     endLevel: 6

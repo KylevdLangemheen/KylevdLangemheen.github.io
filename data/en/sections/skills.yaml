@@ -45,7 +45,7 @@ skills:
 
 - name: Visualization
   logo: /images/sections/skills/tableau.svg
-  summary: "Scientific visualization and dashboarding. Experience with Tableau"
+  summary: "Scientific visualization and dashboarding. Experience with Tableau."
 
 - name: Project Management
   logo: /images/sections/skills/agile.png
@@ -61,8 +61,8 @@ skills:
 
 - name: Git
   logo: /images/sections/skills/git.png
-  summary: "All development done with Git. Primarily using GitHub. Some prior experience using GitLab"
+  summary: "All development done with Git. Primarily using GitHub. Some prior experience using GitLab."
 
 - name: Other programming languages
   logo: /images/sections/skills/c++.png
-  summary: "With varying degrees of proficiency: C/C++, C#, Java, Haskell, Lisp, Prolog, PHP, Matlab, R"
+  summary: "With varying degrees of proficiency: C/C++, C#, Java, Haskell, Lisp, Prolog, PHP, Matlab, R."

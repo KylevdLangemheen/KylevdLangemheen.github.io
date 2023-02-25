@@ -20,7 +20,7 @@ experiences:
   - designation: Machine Learning Scientist
     start: Sep 2022
     # don't provide end date if you are currently working there. It will be replaced by "Present"
-    end: April 2023
+    end: Apr 2023
     # give some points about what was your responsibilities at the company.
     responsibilities:
     - Work on a testing and optimization environment for ML models.
@@ -34,7 +34,7 @@ experiences:
     overview: Prisjakt is a price comparison website operating in multiple countries.
   positions:
   - designation: Machine Learning Engineer
-    start: March 2021
+    start: Mar 2021
     end: Sep 2021
     responsibilities:
     - Implement a complete pipeline for product attribute tagging.
@@ -49,7 +49,7 @@ experiences:
   positions:
   - designation: Teaching Assistant
     start: Feb 2022
-    end: April 2021
+    end: Apr 2021
     responsibilities:
     - Teaching Assistant to the bachelor course Neural Networks and master course Machine Learning.
     - Assist during lectures and tutorials.
@@ -59,14 +59,14 @@ experiences:
     name: TKP
     url: "https://www.tkppensioen.nl/"
     location: Groningen, The Netherlands
-    overview: Intern counting Company (ICC) is responsible for counting worldwide intern Engineers.
+    overview: TKP Pensioen manages the pension obligation and funds for 4 million Dutch citizens across 17 sectors.
   positions:
   - designation: Data scientist (Part-time)
     start: Oct 2021
     end: Jan 2020
     responsibilities:
     - Data visualization and dashboarding.
-    - Automated e-mail (pre-)processing.
+    - Introduce machine learning expertise to the analytics team.
     - Write data ethics manifest for the application of ML within pension.
 
   - designation: Assistant data management 

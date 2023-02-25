@@ -1,0 +1,118 @@
+# section information
+section:
+  name: Education
+  id: education
+  template: sections/education.html # Use "sections/education-alt.html for alternate template.
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+# Allow raw html in markdown file
+
+degrees:
+- name: M.Sc. in Artificial Intelligence
+  icon: fa-graduation-cap
+  timeframe: 2020-2022
+  institution:
+    name: Rijksuniversiteit Groningen
+    url: "https://www.rug.nl/masters/artificial-intelligence/?lang=en"
+  grade: #(optional)
+    scale: 'Average score (translated to Swiss grades using https://www.studyineurope.eu/grades/)'
+    achieved: 6
+    outOf: 6
+  takenCourses: #(optional)
+    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+    showGrades: true
+    collapseAfter: 3
+    courses:
+    - name: Machine Learning
+      achieved: 6
+      outOf: 6
+    - name: Advanced Imaging Techniques
+      achieved: 6
+      outOf: 6
+    - name: Scientific Visualization
+      achieved: 6
+      outOf: 6
+    - name: Introduction to Data Science
+      achieved: 6
+      outOf: 6
+    - name: Cognitive Robotics
+      achieved: 6
+      outOf: 6
+    - name: Computer Vision
+      achieved: 5.5
+      outOf: 6
+    - name: Deep Learning
+      achieved: 5.5
+      outOf: 6
+  extracurricularActivities: #(optional)
+  - Part-time Data Scientist
+  - Teaching Assistant for Neural Networks and Machine Learning
+  - Full-time half-year project over the summer as Machine Learning Engineer
+
+- name: B.Sc. in Artificial Intelligence + Honours College
+  icon: fa-graduation-cap
+  timeframe: 2015-2019
+  institution:
+    name: Rijksuniversiteit Groningen
+    url: "https://www.rug.nl/bachelors/artificial-intelligence/?lang=en"
+  grade: #(optional)
+    scale: 'Average score (translated to Swiss grades using https://www.studyineurope.eu/grades/)'
+    achieved: 5
+    outOf: 6
+  takenCourses: #(optional)
+    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+    showGrades: true
+    collapseAfter: 3
+    courses:
+    - name: Linear Algebra and Multivariable Calculus
+      achieved: 6
+      outOf: 6
+    - name: Neural Networks
+      achieved: 5.5
+      outOf: 6
+    - name: Algorithms and Data Structures in C
+      achieved: 5
+      outOf: 6
+    - name: Object-Oriented Programming
+      achieved: 5.5
+      outOf: 6
+    - name: Signals and Systems
+      achieved: 5
+      outOf: 6
+    - name: General Linguistics
+      achieved: 6
+      outOf: 6
+    - name: Artificial Intelligence 2
+      achieved: 5.5
+      outOf: 6
+  extracurricularActivities: #(optional)
+  - 'Honours College:'
+  - "Almost a year's worth of extracurricular classes."
+  - Including broadening and deepening modules.
+  - Summer school in Münich, scoring 6 out of 6.
+
+- name: Propaedeutic degree in Information and Communications Technology
+  icon: fa-university
+  timeframe: 2015-2019
+  institution:
+    name: Stenden
+    url: "https://www.nhlstenden.com/en/courses/information-technology"
+
+- name: (Higher) Secondary School Certificate
+  icon: fa-school
+  timeframe: 2008-2014
+  institution:
+    name: Carmel College
+    url: "https://www.carmelemmen.nl/"
+  grade: #(optional)
+    scale: 'Average score (translated to Swiss grades using https://www.studyineurope.eu/grades/)'
+    achieved: 6
+    outOf: 6
+  extracurricularActivities: #(optional)
+  - Graduated with honours (cum laude).
+  - Practiced archery and fitness.
+  - Part-time mathematics tutor.
+  - 'Bilingual education: C2 English certificate.'

@@ -18,12 +18,12 @@
 }
 
 .initial-navbar .navbar-brand {
-  color: #c0ccda;
+  color: black;
   font-weight: 600;
 }
 
 .initial-navbar li a {
-  color: #c0ccda;
+  color: #595959;
 }
 
 .initial-navbar .navbar-nav .active,

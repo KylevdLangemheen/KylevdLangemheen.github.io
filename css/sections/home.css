@@ -2,7 +2,7 @@
   height: 100vh;
   padding: 0;
   margin: 0;
-  color: #f9fafc;
+  color: #F6F6F6;
   overflow: hidden;
 }
 
@@ -45,18 +45,18 @@
 .home img {
   width: 148px;
   height: 148px;
-  background-color: #e7e7ef;
+  background-color: #F6F6F6;
   padding: 5px;
   margin-bottom: 10px;
 }
 
 .home .greeting, .home .greeting-subtitle {
-  color: #f9fafc;
+  color: #595959;
 }
 
 .home .typing-carousel {
   font-size: 14pt;
-  color: #f0f0f0;
+  color: #595959;
 }
 
 #typing-carousel-data {
@@ -65,7 +65,7 @@
 
 .arrow {
   position: absolute;
-  color: #f9fafc;
+  color: #595959;
   font-size: 1.5rem;
   bottom: 0;
 }

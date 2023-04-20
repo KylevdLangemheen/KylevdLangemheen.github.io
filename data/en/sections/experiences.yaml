@@ -20,7 +20,7 @@ experiences:
   - designation: Machine Learning Scientist
     start: Sep 2022
     # don't provide end date if you are currently working there. It will be replaced by "Present"
-    end: Apr 2023
+    end: Mar 2023
     # give some points about what was your responsibilities at the company.
     responsibilities:
     - Work on a testing and optimization environment for ML models.
@@ -34,7 +34,7 @@ experiences:
     overview: Prisjakt is a price comparison website operating in multiple countries.
   positions:
   - designation: Machine Learning Engineer
-    start: Mar 2021
+    start: Apr 2021
     end: Sep 2021
     responsibilities:
     - Implement a complete pipeline for product attribute tagging.
@@ -48,7 +48,7 @@ experiences:
     overview: The university of Groningen is a top 100 university with prominent Artificial Intelligence BSc. and MSc. degrees.
   positions:
   - designation: Teaching Assistant
-    start: Feb 2022
+    start: Feb 2021
     end: Apr 2021
     responsibilities:
     - Teaching Assistant to the bachelor course Neural Networks and master course Machine Learning.

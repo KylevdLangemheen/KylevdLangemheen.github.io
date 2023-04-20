@@ -72,10 +72,10 @@ other = "Taken Courses"
 other = "Course Name"
 
 [total_credit]
-other = "Total Credit"
+other = "Highest Grade"
 
 [obtained_credit]
-other = "Obtained Credit"
+other = "Obtained Grade"
 
 [extracurricular_activities]
 other = "Extracurricular Activities"

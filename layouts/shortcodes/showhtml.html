@@ -1,0 +1,8 @@
+{{ $htmlPath := .Get 0 }}
+{{ $fullPath := path.Join .Page.File.Dir $htmlPath }}
+{{ if (fileExists $fullPath) }}
+  {{ $html := readFile $fullPath }}
+  {{ $html | safeHTML }}
+{{ else }}
+  <p>Error: The html file "{{ $htmlPath }}" was not found.</p>
+{{ end }}

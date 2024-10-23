@@ -1,0 +1,71 @@
+<!-- layouts/shortcodes/jsonplot.html -->
+{{ $jsonPath := .Get 0 }}
+{{ $divID := .Get 1 | default "plotly-div" }}
+{{ $fullPath := path.Join .Page.File.Dir $jsonPath }}
+
+{{ if (fileExists $fullPath) }}
+  {{/* Include Plotly.js only once */}}
+  {{ if not (isset $.Scratch "plotlyIncluded") }}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    {{ $.Scratch.Set "plotlyIncluded" true }}
+  {{ end }}
+
+  <div id="{{ $divID }}" class="plotly-div"></div>
+
+  <script>
+    // Define layouts for both themes
+    const lightLayout = {
+      'font.color': '#000000',
+      'xaxis.gridcolor': '#000000',
+      'yaxis.gridcolor': '#000000',
+      // Add other styling as needed
+    };
+
+    const darkLayout = {
+      'font.color': '#ffffff',
+      'xaxis.gridcolor': '#ffffff',
+      'yaxis.gridcolor': '#ffffff',
+      // Add other styling as needed
+    };
+
+    // Function to get the current theme from data-scheme attribute
+    function getCurrentTheme() {
+      return document.documentElement.dataset.scheme || 'light';
+    }
+
+    // Function to update the plot's theme
+    function updatePlotlyTheme(theme) {
+      const newLayout = theme === "dark" ? darkLayout : lightLayout;
+      Plotly.relayout('{{ $divID }}', newLayout);
+    }
+
+    // Initial plot rendering
+    fetch('{{ $jsonPath }}')
+      .then(response => response.json())
+      .then(fig => {
+        // const mergedLayout = Object.assign({}, fig.layout, currentLayout);
+        Plotly.newPlot('{{ $divID }}', fig.data, fig.layout, { responsive: true });
+        updatePlotlyTheme(getCurrentTheme());
+      });
+
+    // Set up a MutationObserver to listen for changes to the data-scheme attribute on <html>
+    const observer = new MutationObserver((mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-scheme') {
+          const newTheme = getCurrentTheme();
+          updatePlotlyTheme(newTheme);
+        }
+      }
+    });
+
+    // Start observing the <html> element for attribute changes
+    observer.observe(document.documentElement, { attributes: true });
+
+    // Clean up the observer when the window is unloaded
+    window.addEventListener('unload', () => {
+      observer.disconnect();
+    });
+  </script>
+{{ else }}
+  <p>Error: JSON file '{{ $jsonPath }}' not found.</p>
+{{ end }}

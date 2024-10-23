@@ -1,0 +1,173 @@
+---
+title: Some test page
+description: Create beautiful interactive image gallery using Markdown
+date: 2023-08-26 00:00:00+0000
+weight: 100
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .node text {
+      color: var(--card-text-color-main);
+      cursor: pointer;
+      text-anchor: middle;
+    }
+    .link {
+      fill: none;
+      stroke: var(--card-text-color-main);
+      stroke-width: 2px;
+    }
+    .node {
+      color: var(--card-text-color-main);
+    }
+    .node a {
+      fill: var(--card-text-color-main);
+    }
+    .node a rect {
+      fill: var(--card-background);
+    }
+    .root {
+        font-size: 24px;
+    }
+    .item {
+        font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+  <div id="tree-container"></div>
+  <script type="module">
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+// Declare the tree dimensions and margins
+const margin = { top: 50, right: 90, bottom: 30, left: 90 },
+      height = 700 - margin.top - margin.bottom;
+
+const container = document.getElementById('tree-container');
+
+// Function to draw the tree
+function drawTree() {
+  // Clear any existing SVG to avoid overlapping graphs
+  d3.select("#tree-container").select("svg").remove();
+
+  const containerWidth = container.clientWidth;
+  const width = containerWidth - margin.left - margin.right;
+
+  // Create the SVG tree-container with namespaces
+  const svg = d3.select("#tree-container").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("xmlns", "http://www.w3.org/2000/svg")
+    .attr("xmlns:xlink", "http://www.w3.org/1999/xlink")
+  .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  // Sample hierarchical data for the tree
+  const data = {
+    "name": "Kyle van de Langemheen",
+    "url": "https://kylevdlangemheen.com/",
+    "children": [
+      {
+        "name": "Data Visualization",
+        "url": "https://example.com/child1",
+        "children": [
+          { "name": "PAC Winrate Analysis", "url": "https://example.com/child1.1" },
+        ]
+      },
+      { 
+        "name": "Fundamental AI",
+        "url": "https://example.com/child2",
+        "children": [
+          { "name": "Catastrophic Interference", "url": "https://example.com/child2.1" },
+          { "name": "Quantization", "url": "https://example.com/child2.2" }
+        ]
+      },
+      { 
+        "name": "ML Engineering",
+        "url": "https://example.com/child2",
+        "children": [
+          { "name": "Child 2.1", "url": "https://example.com/child2.1" },
+          { "name": "Child 2.2", "url": "https://example.com/child2.2" }
+        ]
+      },
+      { 
+        "name": "Research",
+        "url": "https://example.com/child2",
+        "children": [
+          { "name": "Child 2.1", "url": "https://example.com/child2.1" },
+          { "name": "Child 2.2", "url": "https://example.com/child2.2" }
+        ]
+      },
+      { 
+        "name": "Other",
+        "url": "https://example.com/child2",
+        "children": [
+          { "name": "Child 2.1", "url": "https://example.com/child2.1" },
+          { "name": "Child 2.2", "url": "https://example.com/child2.2" }
+        ]
+      }
+    ]
+  };
+
+  // Convert the data into a hierarchy
+  const root = d3.hierarchy(data);
+
+  // Set up a D3 tree layout (top-to-bottom layout)
+  const treeLayout = d3.tree().size([width, height / 2]);
+
+  // Assign the x and y positions for the nodes
+  treeLayout(root);
+
+  // Add links between nodes
+  const link = svg.selectAll(".link")
+    .data(root.links())
+    .enter().append("path")
+    .attr("class", "link")
+    .attr("d", d3.linkVertical()
+      .x(d => d.x)
+      .y(d => d.y));
+
+  // Add nodes
+  const node = svg.selectAll(".node")
+    .data(root.descendants())
+    .enter().append("g")
+    .attr("class", "node")
+    .attr("transform", d => `translate(${d.x},${d.y})`);
+
+  // Add hyperlinks for each node
+  node.append("a")
+    .attr("xlink:href", d => d.data.url)
+    .attr("href", d => d.data.url) // For modern browsers
+    .attr("target", "_blank")
+    .each(function(d) {
+      const group = d3.select(this);
+
+      // Append the text first, then measure it
+      const text = group.append("text")
+        .attr("class", d => d.parent ? "item" : "root")
+        .attr("dy", d => d.children ? "-.5em" : "1.2em")
+        .text(d => d.data.name);
+
+      // Measure text size
+      const bbox = text.node().getBBox();
+
+      // Insert rectangle before text as background
+      group.insert("rect", "text")
+        .attr("x", bbox.x - 2)  // Optional padding
+        .attr("y", bbox.y - 2)
+        .attr("width", bbox.width + 4)
+        .attr("height", bbox.height + 4)
+        .attr("fill", "white");  // White background
+    });
+}
+
+// Initial draw
+drawTree();
+
+// Redraw on window resize
+window.addEventListener("resize", drawTree);
+
+  </script>
+</body>
+</html>

@@ -1,3 +1,14 @@
 /*
     You can add your own custom styles here.
 */
+:root {
+    --plot-text-color: black;
+    --plot-bg-color: rgba(0, 0, 0, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --plot-text-color: white;
+        --plot-bg-color: rgba(0, 0, 0, 0);
+    }
+}

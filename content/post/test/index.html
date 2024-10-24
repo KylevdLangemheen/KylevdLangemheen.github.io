@@ -150,7 +150,6 @@ toc: true
     const siblingLinks = links.filter(link => link.type === "sibling");
     const maxSiblingDistance = Math.max(...siblingLinks.map(link => link.distance));
     const width_excess = Math.max(0., ((maxSiblingDistance+200)/width)-1);
-    if (width_excess > 0.) alert(width_excess);
 
     let parentChildStrength = 2; // Initial strength for parent-child links
     let siblingStrength = .2;

@@ -461,14 +461,35 @@ return `M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`;
   // Apply the drag behavior to the SVG
   node.call(drag);
 }
-drawGraph()
+// Initial graph drawing
+drawGraph();
 
-// Add an event listener for window resize
-window.addEventListener('resize', drawGraph);
+// Select the element you want to observe (body or container)
+const container = document.getElementById('container') || document.body;
 
-// Optional: Clean up the event listener on page unload
+// Initialize the previous width
+let previousWidth = container.offsetWidth;
+
+// Create a ResizeObserver to monitor changes to the container's size
+const resizeObserver = new ResizeObserver(entries => {
+  for (let entry of entries) {
+    // Get the new width of the observed element
+    const newWidth = entry.contentRect.width;
+
+    // Check if the width has changed
+    if (newWidth !== previousWidth) {
+      previousWidth = newWidth;
+      drawGraph();
+    }
+  }
+});
+
+// Start observing the container
+resizeObserver.observe(container);
+
+// Optional: Clean up the observer on page unload
 window.addEventListener('beforeunload', () => {
-  window.removeEventListener('resize', drawGraph);
+  resizeObserver.unobserve(container);
 });
 </script>
 

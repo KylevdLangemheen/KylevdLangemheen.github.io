@@ -1,0 +1,404 @@
+{{ define "main" }}
+    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+    {{ $filtered := ($pages | intersect $notHidden) }}
+    {{ $pag := .Paginate ($filtered) }}
+    <div id="container"></div>
+    <script type="module">
+      import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+  
+      const container = d3.select("#container");
+  
+      const width = parseInt(container.style("width"), 10);
+      const height = 100+250*3+50;
+  
+      const svg = container.append("svg")
+      .attr("overflow", "visible")
+      .attr("position", "relative")
+      .attr("z-index", "2")
+      .attr("viewBox", [-width/2, -height/2, width, height]);
+  
+      const n = 20;
+      const nodes = [
+        {"index": 0,  "layer": 0, "text": "Skills", "width": 100, "offset": 0},
+        {"index": 1,  "layer": 1, "text": "Research", "width": 50,  "offset": -2},
+        {"index": 2,  "layer": 1, "text": "Fundamental AI", "width": 150, "offset": -1},
+        {"index": 3,  "layer": 1, "text": "Visualization", "width": 20,  "offset": 0},
+        {"index": 4,  "layer": 1, "text": "ML/DL Engineering", "width": 100, "offset": 1},
+        {"index": 5,  "layer": 1, "text": "Other", "width": 100, "offset": 2},
+        {"index": 6,  "layer": 2, "text": "Microscopy", "width": 200, "offset": -6},
+        {"index": 7,  "layer": 2, "text": "EEG", "width": 25,  "offset": -5},
+        {"index": 8,  "layer": 2, "text": "CL", "width": 25,  "offset": -4},
+        {"index": 9,  "layer": 2, "text": "Conceptors", "width": 25,  "offset": -3},
+        {"index": 10, "layer": 2, "text": "Interactivity", "width": 100, "offset": -2},
+        {"index": 11, "layer": 2, "text": "Advanced", "width": 120, "offset": -1},
+        {"index": 12, "layer": 2, "text": "Feature Engineering", "width": 120, "offset": 0},
+        {"index": 13, "layer": 2, "text": "Deep Learning", "width": 50,  "offset": 1},
+        {"index": 14, "layer": 2, "text": "Data Processing", "width": 55,  "offset": 2},
+        {"index": 15, "layer": 2, "text": "Games", "width": 50,  "offset": 3},
+        {"index": 16, "layer": 2, "text": "Pets", "width": 100, "offset": 4},
+        {"index": 17, "layer": 2, "text": "Musings", "width": 100, "offset": 5},
+        {"index": 18, "layer": 3, "text": "Pytorch", "width": 30,  "offset": 0},
+        {"index": 19, "layer": 3, "text": "DL Architecture", "width": 100, "offset": 1},
+      ];
+  
+  
+      const node = svg.selectAll(".node")
+        .data(nodes)
+        .enter().append("g");
+  
+      node.each(function(d) {
+        const n = d3.select(this)
+  
+        const circle = n.append("circle")
+        .attr("r", 2.5);
+  
+        const link = n.append("a")
+        .attr("xlink:href", function(d) {
+          switch (d.layer) {
+            case 0:
+              return '/categories/';
+            case 1:
+              return `/categories/${d.text}`;
+            default: 
+              return `/tags/${d.text}`
+          }
+        })
+        .attr("href", function(d) {
+          switch (d.layer) {
+            case 0:
+              return '/categories/';
+            case 1:
+              return `/categories/${d.text}`;
+            default: 
+              return `/tags/${d.text}`
+          }
+        })
+  
+        const text = link.append("text")
+        .attr("text-anchor", "middle")
+        .text(d => d.text);
+        
+  
+        const bbox = text.node().getBBox();
+  
+        const rect = n.insert("rect", "a")
+        .attr("x", bbox.x - 2)    // Optional padding
+        .attr("y", bbox.y - 2)
+        .attr("width", bbox.width + 4)
+        .attr("height", bbox.height + 4)
+        .attr("fill", "white");
+  
+        d.width = bbox.width + 4;
+  
+        d.preferred_y = (100 + d.layer*250)-height/2;
+      })
+  
+      const links = [
+        {"source": 0, "target": 1, "distance": 200, "type": "parent-child"},
+        {"source": 0, "target": 2, "distance": 200, "type": "parent-child"},
+        {"source": 0, "target": 3, "distance": 200, "type": "parent-child"},
+        {"source": 0, "target": 4, "distance": 200, "type": "parent-child"},
+        {"source": 0, "target": 5, "distance": 200, "type": "parent-child"},
+        {"source": 1, "target": 6, "distance": 200, "type": "parent-child"},
+        {"source": 1, "target": 7, "distance": 200, "type": "parent-child"},
+        {"source": 2, "target": 8, "distance": 200, "type": "parent-child"},
+        {"source": 2, "target": 9, "distance": 200, "type": "parent-child"},
+        {"source": 3, "target": 10, "distance": 200, "type": "parent-child"},
+        {"source": 3, "target": 11, "distance": 200, "type": "parent-child"},
+        {"source": 4, "target": 12, "distance": 200, "type": "parent-child"},
+        {"source": 4, "target": 13, "distance": 200, "type": "parent-child"},
+        {"source": 4, "target": 14, "distance": 200, "type": "parent-child"},
+        {"source": 5, "target": 15, "distance": 200, "type": "parent-child"},
+        {"source": 5, "target": 16, "distance": 200, "type": "parent-child"},
+        {"source": 5, "target": 17, "distance": 200, "type": "parent-child"},
+        {"source": 13, "target": 18, "distance": 200, "type": "parent-child"},
+        {"source": 13, "target": 19, "distance": 200, "type": "parent-child"},
+      ];
+  
+      function calculateDistance(parentIndex, childIndex, nodes) {
+        const parentNode = nodes[parentIndex];
+        const childNode = nodes[childIndex];
+        // If the child node has offset 0, n = 0
+        if (childNode.offset === 0) return 200; // Diagonal is just vertical distance
+        
+        const siblings = nodes.filter(n => n.layer === childNode.layer);
+        
+        // Find the sibling with offset 0
+        const siblingWithOffset0 = siblings.find(sibling => sibling.offset === 0);
+        
+  
+  
+        // Find the width of child node (w_a) and sibling with offset 0 (w_b)
+        const w_a = childNode.width;
+        const w_b = siblingWithOffset0 ? siblingWithOffset0.width : 0;
+  
+        // Calculate the sum of widths of nodes between the child and sibling with offset 0 (w_x)
+        let w_x = 0;
+        const minOffset = Math.min(childNode.offset, 0);
+        const maxOffset = Math.max(childNode.offset, 0);
+  
+        siblings.forEach(sibling => {
+            if (sibling.offset > minOffset && sibling.offset < maxOffset) {
+                w_x += sibling.width;
+            }
+        });
+  
+        // Calculate n
+        const n = 0.5 * w_a + w_x + 0.5 * w_b;
+  
+        // Calculate the distance using the formula Math.sqrt(200*200 + n*n)
+        const distance = Math.sqrt(200 * 200 + n * n);
+  
+        return distance;
+      }
+  
+      links.forEach(link => {
+        const parentIndex = link.source;
+        const childIndex = link.target;
+        link.distance = calculateDistance(parentIndex, childIndex, nodes);
+      });
+  
+      for (let l = 1; l <= 3; l++) {
+        // Get all nodes on layer l
+        const layerNodes = nodes.filter(node => node.layer === l);
+  
+        // For each node a on layer l
+        for (let i = 0; i < layerNodes.length; i++) {
+          const a = layerNodes[i];
+          
+          // For each remaining other node b on layer l
+          let d = a.width/2;
+          for (let j = i + 1; j < layerNodes.length; j++) {
+            const b = layerNodes[j];
+            const t = i+1==j ? "neighbour" : "sibling";
+            const final_d = t == "neighbour" ? 30 + d+b.width/2 : d+b.width/2;
+            
+            // Form a link
+            links.push({ "source": a.index, "target": b.index, "distance": final_d, "type": t});
+            d += b.width;
+          }
+        }
+      }
+  
+      const parentChildLinks = links.filter(link => link.type === "parent-child");
+  
+      const siblingLinks = links.filter(link => link.type === "sibling");
+      const maxSiblingDistance = Math.max(...siblingLinks.map(link => link.distance));
+      const width_excess = Math.max(0., ((maxSiblingDistance+200)/width)-1);
+  
+      let parentChildStrength = 2; // Initial strength for parent-child links
+      let siblingStrength = .2;
+      let xStrength = 0.0;
+      let yStrength = 1.;
+      const decayRatePC = 0.03; // The rate at which strength reduces over time
+      const decayRateS = 0.03; // The rate at which strength reduces over time
+      const decayRateX = 0.0;
+      const decayRateY = 0.05;
+      const shrinkRate = 0.99;
+  
+  
+      let simulation = d3.forceSimulation(nodes).on("tick", ticked);
+  
+      function adjustSiblingLinks() {
+        // Step 2: For each layer, find min/max x values and adjust sibling links if necessary
+        const layers = [...new Set(nodes.map(node => node.layer))];
+  
+        layers.forEach(layer => {
+          const layerNodes = nodes.filter(node => node.layer === layer);
+  
+          const minXNode = layerNodes.reduce((minNode, node) => node.x < minNode.x ? node : minNode, layerNodes[0]);
+          const maxXNode = layerNodes.reduce((maxNode, node) => node.x > maxNode.x ? node : maxNode, layerNodes[0]);
+  
+  
+          // If the difference exceeds the width threshold, adjust sibling link distances
+          if ((maxXNode.x + maxXNode.width/2) - (minXNode.x - minXNode.width/2) > width-10) {
+            minXNode.x += 2;
+            maxXNode.x -= 2;
+            links.forEach(link => {
+              const parentA = parentChildLinks.find(pclink => pclink.target.index === link.source.index);
+              const parentB = parentChildLinks.find(pclink => pclink.target.index === link.target.index);
+              const childrenA = parentChildLinks.filter(pclink => pclink.source.index === link.source.index);
+              const childrenB = parentChildLinks.filter(pclink => pclink.source.index === link.target.index);
+              if (!(parentA && parentB)) return;
+  
+              // Check if link is sibling type and both nodes are in this layer
+              if (link.type === 'sibling' &&
+                  layerNodes.some(node => node.index === link.source.index) &&
+                  layerNodes.some(node => node.index === link.target.index)) {
+                // Shrink the link's distance
+                link.distance *= shrinkRate;
+                parentA.target.preferred_y += Math.abs(parentA.source.offset) % 2 == 0 ? .3:-.3;
+                parentB.target.preferred_y += Math.abs(parentB.source.offset) % 2 == 0 ? .3:-.3;
+                //parentA.source.preferred_y -= .01;
+                //parentB.source.preferred_y -= .01;
+                childrenA.forEach(pclink => pclink.target.preferred_y += .05);
+                childrenB.forEach(pclink => pclink.target.preferred_y += .05);
+              }
+            });
+          }
+        });
+      }
+  
+      function computeLinkPath(d) {
+    // Starting point (source node)
+    const x1 = d.source.x;
+    const y1 = d.source.y;
+  
+    // Ending point (target node)
+    const x2 = d.target.x;
+    const y2 = d.target.y;
+  
+    // Difference between points
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+  
+    // Curvature factor (adjust between 0 and 1)
+    const curvature = 0.5;
+  
+    // Control point offsets
+    const cpOffsetX = 0; // Minimal horizontal offset
+    const cpOffsetY = dy * curvature; // Vertical offset based on curvature
+  
+    // First control point (influences the curve after the source point)
+    const cp1x = x1 + cpOffsetX;
+    const cp1y = y1 + cpOffsetY;
+  
+    // Second control point (influences the curve before the target point)
+    const cp2x = x2 + cpOffsetX;
+    const cp2y = y2 - cpOffsetY;
+  
+    // Return the path data string for a cubic Bézier curve
+    return `M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`;
+  }
+  
+      function ticked() {
+        adjustSiblingLinks();
+        simulation.force("outward", d3.forceManyBody().strength(-10).distanceMin(1).distanceMax(50))
+  
+        parentChildStrength = Math.max(1, parentChildStrength - decayRatePC);
+        siblingStrength = Math.max(2, siblingStrength - decayRateS);
+        //xStrength = Math.max(0., xStrength-decayRateX);
+        yStrength = Math.max(.5, yStrength-decayRateY);
+  
+        //simulation.force("y", d3.forceY()
+        //  .y(function(d){
+        //    return (50 + 200 * d.layer)-height/2;
+        //  })
+        //  .strength(yStrength)
+       // )
+  
+        //simulation.force("x", d3.forceX(0).strength(xStrength))
+  
+        simulation.force("parent-child-links", d3.forceLink(parentChildLinks)
+          .strength(0.)
+          .distance(d => d.distance)
+          .iterations(5));
+  
+        simulation.force("sibling-links", d3.forceLink(links.filter(link => link.type === "sibling"))
+          .strength(d => .2)
+          .distance(d => d.distance)
+          .iterations(2))
+  
+        simulation.force("neighbour-links", d3.forceLink(links.filter(link => link.type === "neighbour"))
+          .strength(d => .5)
+          .distance(d => d.distance)
+          .iterations(20))
+  
+        simulation.force("x_attract_to_parent", d3.forceX()
+        .x(function(d) {
+          // Find the link where d is the child (target)
+          const link = parentChildLinks.find(l => l.target.index === d.index);
+          if (link) {
+            // Attract the child to the parent's x position
+            return link.source.x;
+          }
+          return 0; // No force applied if the node is not a child
+        })
+        .strength(function(d) {
+          // Find out in which layer d is
+          const layerNodes = nodes.filter(node => node.layer === d.layer);
+          
+          // Calculate the total width across all nodes in the same layer
+          const totalWidth = layerNodes.reduce((sum, node) => sum + node.width, 0);
+          
+          // Only apply the force to child nodes (those that are a target in a parent-child link)
+          return totalWidth > width-100 ? 0.2 : 0.1;
+        }))
+  
+        simulation.force("y_repel_from_parent", d3.forceY()
+        .y(function(d) {
+          // Find the link where d is the child (target)
+          const link = parentChildLinks.find(l => l.target.index === d.index);
+          if (link) {
+            // Attract the child to the parent's x position
+            return d.preferred_y;
+          }
+          return 0; // No force applied if the node is not a child
+        })
+        .strength(function(d) {
+          const link = parentChildLinks.find(link => link.target.index === d.index);
+          if (!(link)) return 0;
+          const direction = link.target.y - (d.preferred_y);
+          return Math.min(Math.abs(direction), yStrength);
+        }))
+  
+        node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+        link.attr("d", d => computeLinkPath(d));
+      }
+  
+  
+      nodes[0].fx = 0;
+      nodes[0].fy = 100-height/2;
+  
+      const link = svg.append("g")
+      .attr("stroke", "white")
+      .attr("stroke-opacity", 0.3)
+      .attr("fill", "none")
+      .selectAll("path")
+      .data(parentChildLinks)
+      .join("path")
+      .attr("d", d => computeLinkPath(d));
+  
+      const drag = d3.drag()
+      .subject(({x, y}) => simulation.find(x - width/2, y - height/2, 40))
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended);
+  
+      function dragstarted(event) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        event.subject.fx = event.subject.x;
+        event.subject.fy = event.subject.y;
+      }
+  
+      function dragged(event) {
+        if (event.subject == nodes[0]) return;
+        event.subject.fx = event.x;
+        event.subject.fy = event.y;
+      }
+  
+      function dragended(event) {
+        if (!event.active) simulation.alphaTarget(0);
+        if (event.subject == nodes[0]) return;
+        event.subject.fx = null;
+        event.subject.fy = null;
+      }
+  
+      // Apply the drag behavior to the SVG
+      svg.call(drag);
+  
+    </script>
+    <section class="article-list">
+        {{ range $index, $element := $pag.Pages }}
+            {{ partial "article-list/default" . }}
+        {{ end }}
+    </section>
+
+    {{- partial "pagination.html" . -}}
+    {{- partial "footer/footer" . -}}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}

@@ -10,9 +10,11 @@
       width: 100%;
       height: auto;
       font-family: 'Lato';
+      touch-action: auto;
     }
     .node {
       z-index: 10;
+      touch-action: none;
     }
     .node path {
       fill: var(--card-background);
@@ -110,7 +112,8 @@
     n.attr("class", "node");
 
     const circle = n.append("circle")
-    .attr("r", 2.5);
+    .attr("r", 20)
+    .attr("opacity", 0);
 
     const link = n.append("a")
     .attr("xlink:href", function(d) {
@@ -432,7 +435,6 @@ return `M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`;
   .attr("d", d => computeLinkPath(d));
 
   const drag = d3.drag()
-  .subject(({x, y}) => simulation.find(x - width/2, y - height/2, 40))
   .on("start", dragstarted)
   .on("drag", dragged)
   .on("end", dragended);
@@ -457,7 +459,7 @@ return `M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`;
   }
 
   // Apply the drag behavior to the SVG
-  svg.call(drag);
+  node.call(drag);
 }
 drawGraph()
 

@@ -432,10 +432,26 @@ return `M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`;
   .attr("d", d => computeLinkPath(d));
 
   const drag = d3.drag()
-  .subject(({x, y}) => simulation.find(x - width/2, y - height/2, 40))
-  .on("start", dragstarted)
-  .on("drag", dragged)
-  .on("end", dragended);
+  .subject(({x, y}) => {
+    // Find the subject within a radius of 40
+    const subject = simulation.find(x - width / 2, y - height / 2, 40);
+    return subject || null; // Return null if no subject is found
+  })
+  .on("start", function(event) {
+    if (!event.subject) {
+      // Allow default behavior (scrolling) if no subject is found
+      return;
+    }
+    // If a subject is found, prevent scrolling and proceed with drag
+    event.on("drag", function(event) {
+      event.subject.fx = event.x;
+      event.subject.fy = event.y;
+    })
+    .on("end", function(event) {
+      event.subject.fx = null;
+      event.subject.fy = null;
+    });
+  });
 
   function dragstarted(event) {
     if (!event.active) simulation.alphaTarget(0.3).restart();

@@ -11,18 +11,30 @@
       height: auto;
       font-family: 'Lato';
     }
+    .node {
+      z-index: 10;
+    }
     .node path {
       fill: var(--card-background);
+      fill-opacity: 1.;
     }
     .root-text {
       fill: var(--body-text-color);
-
+      font-size: 24px;
+      font-weight: bold;
     }
     .category-text {
       fill: var(--body-text-color);
+      font-size: 20px;
     }
     .tag-text {
       fill: var(--body-text-color);
+      font-size: 17px;
+    }
+    .path path {
+      stroke: var(--body-text-color);
+      stroke-opacity: 1.;
+      z-index: 1;
     }
   </style>
 </head>
@@ -31,7 +43,10 @@
 <script type="module">
   import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
+  function drawGraph() {
   const container = d3.select("#container");
+
+  container.selectAll("svg").remove();
 
   const width = parseInt(container.style("width"), 10);
   const height = 100+250*3+50;
@@ -118,7 +133,6 @@
           return `/tags/${d.text}`
       }
     })
-
     const text = link.append("text")
     .attr("text-anchor", "middle")
     .attr("class", d => {
@@ -399,8 +413,8 @@ return `M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`;
       return Math.min(Math.abs(direction), yStrength);
     }))
 
-    node.attr("transform", (d) => `translate(${d.x},${d.y})`);
     link.attr("d", d => computeLinkPath(d));
+    node.attr("transform", (d) => `translate(${d.x},${d.y})`);
   }
 
 
@@ -408,6 +422,7 @@ return `M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`;
   nodes[0].fy = 100-height/2;
 
   const link = svg.append("g")
+  .attr("class", "path")
   .attr("stroke", "white")
   .attr("stroke-opacity", 0.3)
   .attr("fill", "none")
@@ -443,7 +458,17 @@ return `M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`;
 
   // Apply the drag behavior to the SVG
   svg.call(drag);
+}
+drawGraph()
 
+// Add an event listener for window resize
+window.addEventListener('resize', drawGraph);
+
+// Optional: Clean up the event listener on page unload
+window.addEventListener('beforeunload', () => {
+  window.removeEventListener('resize', drawGraph);
+});
 </script>
+
 </body>
 </html>

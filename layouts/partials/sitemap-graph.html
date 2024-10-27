@@ -121,9 +121,9 @@
         case 0:
           return '/categories/';
         case 1:
-          return `/categories/${d.text}`;
+          return `/categories/${d.text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-')}`;
         default: 
-          return `/tags/${d.text}`
+          return `/tags/${d.text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-')}`
       }
     })
     .attr("href", function(d) {
@@ -131,9 +131,9 @@
         case 0:
           return '/categories/';
         case 1:
-          return `/categories/${d.text}`;
+          return `/categories/${d.text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-')}`;
         default: 
-          return `/tags/${d.text}`
+          return `/tags/${d.text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-')}`
       }
     })
     const text = link.append("text")
@@ -143,9 +143,9 @@
         case 0:
           return 'root-text';
         case 1:
-          return `category-text`;
+          return 'category-text';
         default: 
-          return `tag-text`
+          return 'tag-text'
       }
     })
     .text(d => d.text);

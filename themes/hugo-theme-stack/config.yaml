@@ -8,7 +8,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: img/logo_extra_bold.svg
+    favicon:
 
     footer:
         since:

@@ -5,7 +5,7 @@
 
 {{ if (fileExists $fullPath) }}
   {{/* Include Plotly.js only once */}}
-  {{ if not (isset $.Scratch "plotlyIncluded") }}
+  {{ if (eq ($.Scratch.Get "plotlyIncluded") nil) }}
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     {{ $.Scratch.Set "plotlyIncluded" true }}
   {{ end }}

@@ -1,7 +1,7 @@
 ---
-title: "Masters Thesis: Conceptors"
-description: Math typesetting using KaTeX
-date: 2023-08-24 00:00:00+0000
+title: "Master Thesis: Conceptors"
+description: Introduction to my M.Sc. masterwork at the Rijksuniversiteit Groningen
+date: 2024-11-01 00:00:00+0000
 math: true
 weight: 100
 draft: true

@@ -8,3 +8,5 @@ draft: true
 ---
 
 [//]: # (Alternative: tensor decomposition like CP decomposition or Tucker decomposition)
+
+[//]: # (Weight Sharing implies spatial stationarity, whereas pca assumes inputs represent independent dimensions)

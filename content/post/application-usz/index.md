@@ -6,6 +6,7 @@ date: 2025-02-27 00:00:00+0000
 math: false
 weight: 100
 draft: false
+image: nerves1.jpg
 categories:
     - research
     - visualization

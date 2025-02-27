@@ -12,6 +12,7 @@ categories:
 tags:
     - Analysis
     - Simulation
+    - feature-engineering
 ---
 
 As part of a job application I was asked to consider features for a 3D scan of the subepidermal nerve plexus. However, rather than just looking through the literature, I thought it would be fun to also implement some of them. Unfortunately at this stage in the application process, I do not yet have access to the data. So I thought to generate my own!

@@ -2,7 +2,7 @@
 title: '3D "Nerve growth" Simulation'
 description: A simulation of nerve growth in 3D for an exercise as part of a job application
 slug: application-usz
-date: 2025-27-02 00:00:00+0000
+date: 2025-02-27 00:00:00+0000
 math: false
 weight: 100
 draft: false

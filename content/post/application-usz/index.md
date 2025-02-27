@@ -21,8 +21,8 @@ This has various benefits, the predominant one that we can use the simulation to
 
 The simulation is a vast oversimplification, but it's easy to expand on. As of now, we can control things like thickness, spread & growth direction, and how much it branches. In the future I would like to add additional simulation options such as bundling of multiple fine nerves, and better controls for visualization. Either way, this is enough to at least get a first look at what the simulation looks like!
 
-![Nerves grow towards the blue dots. Note that this is actually in 3D!](nerves1.png)
+![Nerves grow towards the blue dots. Note that this is actually in 3D!](nerves1.jpg)
 
-![Results of a completed simulation. Some dots are not reachable.](nerves2.png)
+![Results of a completed simulation. Some dots are not reachable.](nerves2.jpg)
 
 My implementation is roughly based on [this implementation of space colonization in 2D](https://github.com/jasonwebb/2d-space-colonization-experiments). As you can see, it has a very nice "natural" feel to it, although it's still far from realistic nerve growth. Still, it should suffice for a proof of concept of some features to describe 3D nerve topology!

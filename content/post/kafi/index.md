@@ -33,4 +33,4 @@ Beyond how extremely affectionate and lovable he is, Kafi also often makes us la
 
 If you've read all that, you must be a die-hard Kafi fan just like we are. So here's one final eepy sleepy Kafi just for you!
 
-![He's napping in the mornings when I'm working. Maybe we should switch roles sometimes.](kafi_sun.jpg)
+![He's napping in the mornings when I'm working. Maybe we should switch roles sometimes.](kafi_sleep.jpg)

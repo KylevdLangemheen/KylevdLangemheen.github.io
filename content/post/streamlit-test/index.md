@@ -9,9 +9,10 @@ draft: false
 image: streamlit.jpg
 categories:
     - Visualization
-    - other
+    - mldl-engineering
 tags:
-    - test
+    - Analysis
+    - WebApp
 ---
 
 Here is a first attempt at getting Streamlit apps embedded on this webpage. If you're unsure why this is amazing, let me explain the difference between static pages and dynamic ones. Intuitively, a static page is the same for every visitor, supports only limited interactivity, and is stored as-is on the server. It loads quickly and is so easy to host that it is completely free on many platforms. That way, to get a personal website like this one, you'd only need to pay for the DNS.
@@ -26,3 +27,7 @@ Through embedding this content, I can show more (and more fun!) content in an in
   src="https://floralpina-demo.streamlit.app?embed=true"
   style="height: 450px; width: 100%;"
 ></iframe>
+
+Oops! Not all features integrate as nicely. Most notable, the callbacks for authentication breaks when running in embedded mode. Furthermore, it does not respond to the light/dark mode toggle on my website. Finally, if the page is unused for a while, Streamlit takes the container that runs the app down. This means the server essentially has to be restarted for the next visitor, which can take 5-10 minutes. It's very likely that this has happened to you just now (and then you got disappointed that you cannot login...)!
+
+So what's the solution? Well, the easiest answer is: Don't worry about it. Running and hosting Streamlit apps is essentially free for my usecase, so it should be fine even without authentication. The light/dark mode is a bit of a pain, maybe I'll look at having a transparent background (that can dynamically be applied when running in embedded mode?). But it is by no means a dealbreaker. And it is the same with launching the app. Sure, it takes some time. But the project is there and can be easily accessed, even if it takes some waiting. For now, that is sufficient. If there's ever a need to move a project to be permanently available, I can always just spin up an instance on AWS.

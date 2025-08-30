@@ -1,7 +1,7 @@
 ---
 title: 'Another Attempt at Embedding Apps'
-description: Streamlit and other types of webapps on my static website? Yes please!
-slug: streamlit-test
+description: Dash and other types of webapps on my static website? Yes please!
+slug: streamlit-test2
 date: 2025-08-30 00:00:00+0000
 math: false
 weight: 100

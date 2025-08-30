@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Feature-Engineering on Kyle van de Langemheen</title><link>https://kylevdlangemheen.com/tags/feature-engineering/</link><description>Recent content in Feature-Engineering on Kyle van de Langemheen</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 27 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kylevdlangemheen.com/tags/feature-engineering/index.xml" rel="self" type="application/rss+xml"/><item><title>3D "Nerve growth" Simulation</title><link>https://kylevdlangemheen.com/p/application-usz/</link><pubDate>Thu, 27 Feb 2025 00:00:00 +0000</pubDate><guid>https://kylevdlangemheen.com/p/application-usz/</guid><description>&lt;img src="https://kylevdlangemheen.com/p/application-usz/nerves1.jpg" alt="Featured image of post 3D "Nerve growth" Simulation" /&gt;&lt;p&gt;As part of a job application I was asked to consider features for a 3D scan of the subepidermal nerve plexus. However, rather than just looking through the literature, I thought it would be fun to also implement some of them. Unfortunately at this stage in the application process, I do not yet have access to the data. So I thought to generate my own!&lt;/p&gt;
+&lt;p&gt;This has various benefits, the predominant one that we can use the simulation to understand our features better. Let&amp;rsquo;s say we have a feature which describes the branching factor of the nerves. Then for a certain volume inside the scan (our real data), we find that the branching factor is 0.45. What does this mean? With a simulation, we could visually describe &amp;amp; interpret our features. We can have a progression from 0. to 1. branching factor, giving a much more obvious feeling for what a branching factor of 0.45 means.&lt;/p&gt;
+&lt;p&gt;The simulation is a vast oversimplification, but it&amp;rsquo;s easy to expand on. As of now, we can control things like thickness, spread &amp;amp; growth direction, and how much it branches. In the future I would like to add additional simulation options such as bundling of multiple fine nerves, and better controls for visualization. Either way, this is enough to at least get a first look at what the simulation looks like!&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://kylevdlangemheen.com/p/application-usz/nerves1.jpg"
+width="626"
+height="565"
+srcset="https://kylevdlangemheen.com/p/application-usz/nerves1_hu_aaa3e32fd7d82ae1.jpg 480w, https://kylevdlangemheen.com/p/application-usz/nerves1_hu_a845c9e98a37e0cb.jpg 1024w"
+loading="lazy"
+alt="Nerves grow towards the blue dots. Note that this is actually in 3D!"
+class="gallery-image"
+data-flex-grow="110"
+data-flex-basis="265px"
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://kylevdlangemheen.com/p/application-usz/nerves2.jpg"
+width="593"
+height="551"
+srcset="https://kylevdlangemheen.com/p/application-usz/nerves2_hu_da700490714da34d.jpg 480w, https://kylevdlangemheen.com/p/application-usz/nerves2_hu_1fe25dacf7a0c46d.jpg 1024w"
+loading="lazy"
+alt="Results of a completed simulation. Some dots are not reachable."
+class="gallery-image"
+data-flex-grow="107"
+data-flex-basis="258px"
+&gt;&lt;/p&gt;
+&lt;p&gt;My implementation is roughly based on &lt;a class="link" href="https://github.com/jasonwebb/2d-space-colonization-experiments" target="_blank" rel="noopener"
+&gt;this implementation of space colonization in 2D&lt;/a&gt;. As you can see, it has a very nice &amp;ldquo;natural&amp;rdquo; feel to it, although it&amp;rsquo;s still far from realistic nerve growth. Still, it should suffice for a proof of concept of some features to describe 3D nerve topology!&lt;/p&gt;</description></item></channel></rss>

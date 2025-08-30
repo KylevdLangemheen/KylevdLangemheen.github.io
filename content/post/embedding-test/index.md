@@ -20,4 +20,6 @@ tags:
     frameborder="0"
     width="100%"
     height="450px"
+    style="background:none transparent;"
+    allowtransparency="true"
 ></iframe>

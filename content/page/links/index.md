@@ -1,5 +1,8 @@
 ---
 title: Links
+slug: "links"
+aliases:
+    - "/page/links/"
 links:
   - title: GitHub
     description: GitHub is the world's largest software development platform.

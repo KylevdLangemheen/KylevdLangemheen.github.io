@@ -1,6 +1,8 @@
 ---
 title: "Search"
 slug: "search"
+aliases:
+    - "/page/search/"
 layout: "search"
 outputs:
     - html

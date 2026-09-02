@@ -1,9 +1,11 @@
-# Update the NODE_VERSION arg in docker-compose.yml to pick a Node version: 18, 16, 14
-ARG NODE_VERSION=16
+# Update the NODE_VERSION arg in docker-compose.yml to pick a Node version: 18, 20
+# NOTE: use a "-bookworm" tag, not the old default (bullseye), so the base image's
+# glibc is new enough for current Hugo release binaries.
+ARG NODE_VERSION=26-bookworm
 FROM mcr.microsoft.com/devcontainers/javascript-node:${NODE_VERSION}
 
 # VARIANT can be either 'hugo' for the standard version or 'hugo_extended' for the extended version.
-ARG VARIANT=hugo
+ARG VARIANT=hugo_extended
 # VERSION can be either 'latest' or a specific version number
 ARG VERSION=latest
 

@@ -11,8 +11,17 @@ direction = "ltr"
 title = "Kyle van de Langemheen"
 weight = 2
 
+# No NL/DE posts, search or archives pages yet, so the homepage widgets
+# (search, archives, categories, tag cloud) would be empty. Remove these
+# overrides once translated content exists.
+[nl.params.widgets]
+homepage = []
+
 [de]
 label = "Deutsch"
 direction = "ltr"
 title = "Kyle van de Langemheen"
 weight = 3
+
+[de.params.widgets]
+homepage = []

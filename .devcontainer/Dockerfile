@@ -28,6 +28,25 @@ RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
     tar xf ${VERSION}.tar.gz && \
     mv hugo /usr/bin/hugo
 
+# Download Dart Sass (needed by layouts/_partials/head/style.html; libsass is deprecated in Hugo).
+# Use the standalone release, not the npm `sass` package, which Hugo cannot use.
+ARG DART_SASS_VERSION=latest
+RUN case ${DART_SASS_VERSION} in \
+    latest) \
+    export DART_SASS_VERSION=$(curl -s https://api.github.com/repos/sass/dart-sass/releases/latest | grep "tag_name" | awk '{print substr($2, 2, length($2)-3)}') ;;\
+    esac && \
+    echo ${DART_SASS_VERSION} && \
+    case $(uname -m) in \
+    aarch64) \
+    export SASS_ARCH=arm64 ;; \
+    *) \
+    export SASS_ARCH=x64 ;; \
+    esac && \
+    curl -fsSL https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-${SASS_ARCH}.tar.gz \
+    | tar -xz -C /usr/local/lib && \
+    ln -s /usr/local/lib/dart-sass/sass /usr/local/bin/sass && \
+    sass --version
+
 # Hugo dev server port
 EXPOSE 1313
 

@@ -1,0 +1,5 @@
+{{- /* Overrides the theme's partial to compile with Dart Sass (libsass is deprecated since Hugo v0.153.0).
+     Remove once the theme does this itself: https://github.com/CaiJimmy/hugo-theme-stack/issues/1356 */ -}}
+{{ $sass := resources.Get "scss/style.scss" }}
+{{ $style := $sass | css.Sass (dict "transpiler" "dartsass" "silenceDeprecations" (slice "import" "global-builtin")) | minify | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">

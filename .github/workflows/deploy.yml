@@ -39,10 +39,16 @@ jobs:
                   hugo-version: "latest"
                   extended: true
 
+            # Required by layouts/_partials/head/style.html (css.Sass with transpiler "dartsass")
+            - name: Install Dart Sass
+              run: sudo snap install dart-sass
+
             - name: Build
               run: hugo --minify --gc
 
+            # PRs only build (as a check); publishing happens only for pushes/merges to master
             - name: Deploy 🚀
+              if: github.event_name == 'push' && github.ref == 'refs/heads/master'
               uses: JamesIves/github-pages-deploy-action@v4
               with:
                   branch: gh-pages
